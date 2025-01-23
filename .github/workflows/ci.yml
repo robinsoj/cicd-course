@@ -24,7 +24,7 @@ jobs:
       - name: Force Failure
         run: exit 0
     
-    name: Style
+    name: Code Style
     runs-on: ubuntu-latest
 
     steps:
