@@ -1,9 +1,11 @@
+name: cd
+
 on:
   push:
     branches: [main]
   
-  jobs:
-    name: Deploy
+jobs:
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
@@ -14,6 +16,9 @@ on:
         uses: actions/setup-go@v5
         with:
           go-version: '1.23.0'
+      
+      - name: Install dependencies
+        run: go mod tidy
       
       - name: Build it
         run: ./scripts/buildprod.sh
